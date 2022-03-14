@@ -2,14 +2,31 @@
 // We suggest you to commit this file into source control
 // Read more: https://github.com/vuejs/vue-next/pull/3399
 
-declare module 'vue' {
+declare module "vue" {
   export interface GlobalComponents {
-    Counter: typeof import('./src/components/Counter.vue')['default']
-    Footer: typeof import('./src/components/Footer.vue')['default']
-    LoginForm: typeof import('./src/components/LoginForm.vue')['default']
-    RegisterForm: typeof import('./src/components/RegisterForm.vue')['default']
-    WorkingGrid: typeof import('./src/components/WorkingGrid.vue')['default']
+    NAutoComplete: typeof import("naive-ui")["NAutoComplete"]
+    NButton: typeof import("naive-ui")["NButton"]
+    NCard: typeof import("naive-ui")["NCard"]
+    NConfigProvider: typeof import("naive-ui")["NConfigProvider"]
+    NDataTable: typeof import("naive-ui")["NDataTable"]
+    NEmpty: typeof import("naive-ui")["NEmpty"]
+    NIcon: typeof import("naive-ui")["NIcon"]
+    NInput: typeof import("naive-ui")["NInput"]
+    NLayout: typeof import("naive-ui")["NLayout"]
+    NLayoutContent: typeof import("naive-ui")["NLayoutContent"]
+    NLayoutSider: typeof import("naive-ui")["NLayoutSider"]
+    NList: typeof import("naive-ui")["NList"]
+    NListItem: typeof import("naive-ui")["NListItem"]
+    NLoadingBarProvider: typeof import("naive-ui")["NLoadingBarProvider"]
+    NMessageProvider: typeof import("naive-ui")["NMessageProvider"]
+    NModal: typeof import("naive-ui")["NModal"]
+    NScrollbar: typeof import("naive-ui")["NScrollbar"]
+    NSelect: typeof import("naive-ui")["NSelect"]
+    NSlider: typeof import("naive-ui")["NSlider"]
+    NSpace: typeof import("naive-ui")["NSpace"]
+    NTag: typeof import("naive-ui")["NTag"]
+    RightHolderLayer: typeof import("./src/components/RightHolderLayer.vue")["default"]
   }
 }
 
-export { }
+export {}

@@ -5,7 +5,9 @@ import Pages from "vite-plugin-pages"
 import Layouts from "vite-plugin-vue-layouts"
 import Components from "unplugin-vue-components/vite"
 import AutoImport from "unplugin-auto-import/vite"
+import { NaiveUiResolver } from "unplugin-vue-components/resolvers"
 import { viteExternalsPlugin } from "vite-plugin-externals"
+import Unocss from "unocss/vite"
 
 export default defineConfig({
   build: {
@@ -38,6 +40,7 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-components
     Components({
+      resolvers: [NaiveUiResolver()],
       dts: true
     }),
 
@@ -62,12 +65,5 @@ export default defineConfig({
   optimizeDeps: {
     include: ["vue", "vue-router", "@vueuse/core"],
     exclude: ["vue-demi"]
-  },
-
-  test: {
-    environment: "jsdom",
-    deps: {
-      inline: ["@vue", "@vueuse", "vue-demi"]
-    }
   }
 })
