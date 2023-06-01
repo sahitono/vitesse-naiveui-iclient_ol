@@ -1,0 +1,5 @@
+:root {
+  --primary-color: rgb(177, 0, 12);
+  --primary-color-hover: #ff4300;
+  --primary-color-pressed: rgb(125, 0, 8);
+}

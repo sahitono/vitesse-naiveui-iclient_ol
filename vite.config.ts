@@ -2,12 +2,13 @@ import path from "path"
 import { defineConfig } from "vite"
 import Vue from "@vitejs/plugin-vue"
 import Pages from "vite-plugin-pages"
-import Layouts from "vite-plugin-vue-layouts"
 import Components from "unplugin-vue-components/vite"
 import AutoImport from "unplugin-auto-import/vite"
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers"
 import { viteExternalsPlugin } from "vite-plugin-externals"
 import Unocss from "unocss/vite"
+import VueMacros from "unplugin-vue-macros/vite"
+import VueDevTools from "vite-plugin-vue-devtools"
 
 export default defineConfig({
   build: {
@@ -26,23 +27,39 @@ export default defineConfig({
     }
   },
   plugins: [
-    Vue(),
+    VueDevTools(),
+    VueMacros({
+      defineOptions: false,
+      defineModels: false,
+      plugins: {
+        vue: Vue({
+          script: {
+            propsDestructure: true,
+            defineModel: true
+          }
+        })
+      }
+    }),
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages(),
-    Layouts(),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: ["vue", "vue-router", "@vueuse/core"],
-      dts: true
+      dts: "src/auto-imports.d.ts",
+      dirs: ["./src/composables"],
+      vueTemplate: true
     }),
 
     // https://github.com/antfu/vite-plugin-components
     Components({
       resolvers: [NaiveUiResolver()],
-      dts: true
+      dts: "src/components.d.ts",
+      dirs: ["./src/components/", "./src/layouts/"],
+      deep: true
     }),
+    Unocss(),
 
     // https://github.com/antfu/unocss
     viteExternalsPlugin(

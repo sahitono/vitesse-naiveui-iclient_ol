@@ -37,15 +37,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="map" ref="mapRef"></div>
+  <div id="map" class="absolute w-full h-full" ref="mapRef"></div>
 </template>
 
 <style>
 @import "ol/ol.css";
 
 #map {
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .ol-zoom {

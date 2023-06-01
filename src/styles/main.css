@@ -1,0 +1,6 @@
+@import url("./color.css");
+@import url("./font.css");
+
+body {
+  font-family: InterVariable, sans-serif;
+}
